@@ -1,6 +1,6 @@
 <?php
 
-namespace Locations;
+namespace RoLocations;
 
 use T4webBase\Domain\Service\BaseFinder;
 use Zend\Mvc\Controller\ControllerManager;
