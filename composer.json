@@ -1,0 +1,44 @@
+{
+    "name": "robaks/locations",
+    "description": "ZF2 Module for managing locations",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "locations"
+    ],
+    "homepage": "https://github.com/robaks/Locations",
+    "authors": [
+        {
+            "name": "robaks",
+            "email": "gamm91550@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/base.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/actioninjections.git"
+        }
+    ],
+    "require": {
+      "php": ">=5.5",
+      "zendframework/zendframework": "~2.5.0",
+
+      "t4web/actioninjections": "dev-master",
+      "t4web/base": "dev-master"
+    },
+    "autoload": {
+      "psr-0": {
+        "RoLocations": "src/",
+        "RoLocationsTest\\UnitTest": "tests/UnitTest/"
+      },
+      "classmap": [
+        "./Module.php"
+      ]
+    }
+
+}
