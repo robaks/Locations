@@ -6,9 +6,12 @@ use T4webBase\Domain\Service\BaseFinder;
 use Zend\Mvc\Controller\ControllerManager;
 use Zend\ModuleManager\Feature\ControllerProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
+use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
 
-class Module implements ControllerProviderInterface, ServiceProviderInterface
+class Module implements AutoloaderProviderInterface, ConsoleUsageProviderInterface, ControllerProviderInterface, ServiceProviderInterface
 {
 
     public function getConfig()
@@ -22,9 +25,15 @@ class Module implements ControllerProviderInterface, ServiceProviderInterface
             'Zend\Loader\StandardAutoloader' => [
                 'namespaces' => [
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                    __NAMESPACE__ => __DIR__ . '/tests/',
                 ],
             ],
+        ];
+    }
+
+    public function getConsoleUsage(ConsoleAdapterInterface $console)
+    {
+        return [
+            'locations init' => 'Initialize module',
         ];
     }
 
@@ -72,6 +81,9 @@ class Module implements ControllerProviderInterface, ServiceProviderInterface
                         $sm->get('RoLocations\Cities\Service\Finder')
                     );
                 },
+            ],
+            'invokables' => [
+                'RoLocations\Controller\Console\Init' => 'RoLocations\Controller\Console\InitController',
             ],
         ];
     }

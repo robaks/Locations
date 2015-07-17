@@ -19,6 +19,11 @@ return [
     ],
 
     'controller_action_injections' => [
+        'RoLocations\Controller\Console\InitController' => [
+            'runAction' => [
+                'Zend\Db\Adapter\Adapter',
+            ],
+        ],
         'RoLocations\Controller\User\IndexAjaxController' => [
             'getLocationCountryAction' => [
                 'RoLocations\Countries\Service\Finder',
