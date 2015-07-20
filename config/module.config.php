@@ -17,7 +17,6 @@ return [
             ],
         ],
     ],
-
     'controller_action_injections' => [
         'RoLocations\Controller\Console\InitController' => [
             'runAction' => [
@@ -50,7 +49,6 @@ return [
             ],
         ],
     ],
-
     'console' => [
         'router' => [
             'routes' => [
@@ -67,7 +65,6 @@ return [
             ],
         ],
     ],
-
     'db' => [
         'tables' => [
             'rolocations-countries' => [
@@ -96,7 +93,6 @@ return [
             ],
         ],
     ],
-
     'criteries' => [
         'Cities' => [
             'empty' => [
@@ -157,6 +153,13 @@ return [
                 'table' => 'countries',
                 'buildMethod' => 'addFilterIn',
             ]
+        ],
+    ],
+    'view_manager' => [
+        'display_exceptions' => true,
+        'display_not_found_reason' => true,
+        'strategies' => [
+            'ViewJsonStrategy',
         ],
     ],
 ];
