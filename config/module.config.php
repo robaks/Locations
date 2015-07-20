@@ -4,7 +4,7 @@ return [
 
     'router' => [
         'routes' => [
-            'user-list-ajax' => [
+            'locations-ajax' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => '/location/:action',
