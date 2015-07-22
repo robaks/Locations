@@ -24,15 +24,11 @@ class InitController extends AbstractActionController
         $this->dbAdapter = $dbAdapter;
         $message = "Success completed" . PHP_EOL;
 
-        try {
-            $this->createTableCountries()
-                ->createTableRegions()
-                ->createTableCities();
-        } catch (PDOException $e) {
-            $message = $e->getMessage() . PHP_EOL;
-        }
+        $result = $this->createTableCountries()
+            ->createTableRegions()
+            ->createTableCities();
 
-        return $message;
+        return $result === true ? $message : '';
     }
 
     private function createTableCountries()
@@ -71,12 +67,16 @@ class InitController extends AbstractActionController
 
         $this->create($table);
 
-        return $this;
+        return true;
     }
 
     private function create(SqlInterface $table)
     {
-        $sql = new Sql($this->dbAdapter);
-        $this->dbAdapter->query($sql->buildSqlString($table), Adapter::QUERY_MODE_EXECUTE);
+        try {
+            $sql = new Sql($this->dbAdapter);
+            $this->dbAdapter->query($sql->buildSqlString($table), Adapter::QUERY_MODE_EXECUTE);
+        } catch (PDOException $e) {
+            $message = $e->getMessage() . PHP_EOL;
+        }
     }
 }
