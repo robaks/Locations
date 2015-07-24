@@ -93,7 +93,6 @@ return [
             ],
         ],
     ],
-    // TODO: all criteries must be lower case, do refactor T4webBase\Domain\Criteria\Factory
     'criteries' => [
         'Cities' => [
             'empty' => [
