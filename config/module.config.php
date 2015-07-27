@@ -123,6 +123,16 @@ return [
                 'table' => 'cities',
                 'buildMethod' => 'addFilterIn',
             ],
+            'countryId' => [
+                'field' => 'country_id',
+                'table' => 'cities',
+                'buildMethod' => 'addFilterEqual',
+            ],
+            'countryIds' => [
+                'field' => 'country_id',
+                'table' => 'cities',
+                'buildMethod' => 'addFilterIn',
+            ],
         ],
         'Regions' => [
             'empty' => [
