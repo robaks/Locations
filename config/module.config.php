@@ -138,6 +138,14 @@ return [
                 'table' => 'cities',
                 'buildMethod' => 'addFilterLikeNext'
             ],
+            'limit' => [
+                'table' => 'cities',
+                'buildMethod' => 'limit',
+            ],
+            'page' => [
+                'table' => 'cities',
+                'buildMethod' => 'page',
+            ],
         ],
         'Regions' => [
             'empty' => [
@@ -158,6 +166,14 @@ return [
                 'table' => 'regions',
                 'buildMethod' => 'addFilterEqual',
             ],
+            'limit' => [
+                'table' => 'regions',
+                'buildMethod' => 'limit',
+            ],
+            'page' => [
+                'table' => 'regions',
+                'buildMethod' => 'page',
+            ],
         ],
         'Countries' => [
             'empty' => [
@@ -172,7 +188,15 @@ return [
                 'field' => 'id',
                 'table' => 'countries',
                 'buildMethod' => 'addFilterIn',
-            ]
+            ],
+            'limit' => [
+                'table' => 'countries',
+                'buildMethod' => 'limit',
+            ],
+            'page' => [
+                'table' => 'countries',
+                'buildMethod' => 'page',
+            ],
         ],
     ],
     'view_manager' => [
