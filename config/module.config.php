@@ -133,6 +133,11 @@ return [
                 'table' => 'cities',
                 'buildMethod' => 'addFilterIn',
             ],
+            'completeName' => [
+                'field' => 'name',
+                'table' => 'cities',
+                'buildMethod' => 'addFilterLikeNext'
+            ],
         ],
         'Regions' => [
             'empty' => [
